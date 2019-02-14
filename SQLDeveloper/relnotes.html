@@ -1,0 +1,313 @@
+<TITLE>Oracle SQL Developer 1.5.3: Release Notes</TITLE>
+
+ <link href="otn_new.css" rel="stylesheet" type="text/css"> 
+ 
+<table width="100%" cellpadding="7" cellspacing="0" border="0" class="bodycopy">
+  <tr> 
+    <td> <img src="raptor_image.jpg" width="48" height="48" hspace="5" vspace="5" align=left> 
+      <br/> <span class="parahead1">Oracle SQL Developer Release 1.5.3 - Release 
+      Notes </span><br/> <span class="textA"><br/>
+      </span><span class="legalese">Date: December 2008</span> 
+      <p class="navheader">Contents</p>
+      <p class="navheader"><a href="#about" class="bodycopy">About this release</a></p>
+      <ol>
+        <li class="bodycopy"><a href="#sec1">Before you Start</a></li>
+        <li class="bodycopy"><a href="#sec2">Once you have started</a></li>
+        <li class="bodycopy"><a href="#sec3">Known Issues</a></li>
+        <li class="bodycopy"><a href="#sec6">New Features in SQL Developer 1.5</a></li>
+      </ol></td>
+  </tr>
+  <tr> 
+    <td><p><a name="about"></a><span class="navheader">About this release</span></p>
+      <p class="bodycopy">SQL Developer 1.5.3 is our first translation release. 
+        The translated languages are Japanese, Spanish, Italian, German, French, 
+        Brazilian Portuguese, Simplified Chinese and Korean. In addition to the 
+        translations, a number of bugs have been fixed for this release. There 
+        has been no focus on new functionality. New features are included in SQL 
+        Developer 2.0, scheduled for release in 2009. </p>
+      <p class="bodycopy">This release does contain support for Kerberos authentication 
+        and updates to the LDAP connection support.</p>
+      <p class="bodycopy">NOTE: The SQL Worksheet is being rewritten for SQL Developer 
+        2.0. As such many existing bugs and requests for the SQL Worksheet have 
+        been noted and should be addressed in the next release of SQL Developer, 
+        not in SQL Developer 1.5.3.</p>
+      <p><span class="navheader"><a name="sec1" id="sec1"></a>1.&nbsp; Before 
+        you Start</span></p>
+      <ol>
+        <li><span class="bodycopy">Oracle SQL Developer 1.5.3 is available for 
+          Windows (XP and Vista (including 64bit)), Linux or the Mac OS X.</span></li>
+        <li><strong>Installing or Upgrading:</strong> 
+          <ol>
+            <li>For SQL Developer releases prior to SQL Developer 1.5, this is 
+              a full installation. Download and unzip the file, into an empty 
+              folder. Ensure the &quot;Use folder names&quot; checkbox is checked 
+              when unzipping the file.</li>
+            <li> For SQL Developer 1.5 or SQL Developer 1.5.1, use <a href="http://www.oracle.com/technology/products/database/sql_developer/files/check_for_updates.html">Check 
+              for Updates</a> to update your existing SQL Developer 1.5.x installation. 
+              You should select all the SQL Developer files in the <strong>Check 
+              For Updates</strong> dialog. </li>
+          </ol>
+        </li>
+        <li><span class="bodycopy"><strong>Migrating</strong> preferences and 
+          connections from previous releases. After you have installed the product 
+          you are asked if you want to migrate from a previous release. This migrates 
+          previously set preferences and connections created:</span> 
+          <ol>
+            <li><span class="bodycopy">To migrate your existing Release 1.2.1 
+              connections, select <strong>Browse...</strong> on the dialog, navigate 
+              to and select the <em>&lt;sqldev 1.2.1 home&gt;\sqldeveloper\sqldeveloper\system</em> 
+              folder. In the future these system folder files are stored in the 
+              <em>\Documents and Settings\&lt;your_user&gt;\Application Data\SQL 
+              Developer</em></span></li>
+            <li><span class="bodycopy"> To migrate settings from SQL Developer 
+              1.5.x, select <strong>Browse...</strong> on the dialog, navigate 
+              to and select the <span class="bodycopy"><em>\Documents and Settings\&lt;your_user&gt;\Application 
+              Data\SQL Developer</em> folder. </span></span></li>
+            <li>If you are using Oracle SQL Developer 1.1.3 as part of the Oracle 
+              Database 11gR1 installation, navigate to [ORACLE_HOME] \product\11.1.0\db_1\sqldeveloper\sqldeveloper\system</li>
+          </ol>
+        </li>
+        <li><span class="bodycopy">The SQL Developer 1.5.3 release is shipped 
+          with JDK1.5.0_06. You can use the embedded JDK or connect to a JDK you 
+          have installed. The minimum JDK you should use is 1.5.0_06. If you use 
+          JDK1.6 (JDK6.0), the <strong>minimum </strong>you should use is JDK1.6 
+          Update 3. SQL Developer does not work with JDK 1.6 Update 1 and 2.</span></li>
+        <li>It is recommended that when using SQL Developer on Windows Vista, 
+          that you use a minimum of JDK.1.6, as this improves screen repainting 
+          issues. </li>
+        <li><span class="bodycopy">In Oracle SQL Developer 1.5.3 your user-defined 
+          reports, SQL History and user-defined snippets files are located in 
+          the <em>\Documents and Settings\&lt;your_user&gt;\Application Data\SQL 
+          Developer</em> folder. These are also migrated.</span></li>
+        <li><span class="bodycopy"> The JDBC drivers shipped are 11g R1. This 
+          means that users will no longer be able to connect to an Oracle 8.1.7 
+          database. </span></li>
+        <li><span class="bodycopy">This release supports the Sybase 12 and Sybase 
+          15 in addition to the current third party databases supported. </span> 
+          <ul>
+            <li><span class="bodycopy">You will not see any third party tabs in 
+              the connections dialog until you have installed the drivers.</span></li>
+            <li><span class="bodycopy">You can download and include the third-party 
+              database drivers manually. See the <a href="http://www.oracle.com/technology/tech/migration/workbench/files/omwb_getstarted.html">existing 
+              documentation</a> for that on OTN. Alternatively y</span>ou can 
+              use <strong>Check for Updates</strong> to setup these drivers.</li>
+            <li><em>Do not</em> use the latest MySQL driver 5.1. Use the 5.0.x 
+              drivers for MySQL.</li>
+          </ul>
+        </li>
+        <li>Before you can use SQL Developer to connect to TimesTen: 
+          <ul>
+            <li>Install TimesTen 7.0.3 or a later release of the server or client 
+              on the same machine as SQL Developer.</li>
+            <li> Make sure the CLASSPATH environment variable is pointing to the 
+              TimesTen JDBC driver (TimesTen_install_dir/lib/ttjdbc5.jar).</li>
+            <li> On Linux systems, execute the shell script TimesTen_install_dir/bin/ttenv.sh 
+              or TimesTen_install_dir/bin/ttenv.csh to set up the TimesTen environment 
+              before launching SQL Developer.</li>
+            <li>Read <a href="http://www.oracle.com/technology/products/timesten/htdocs/doc/sqldev_15313_relnotes.html">these 
+              more detailed release notes</a> on TimesTen </li>
+          </ul>
+        </li>
+      </ol></td>
+  </tr>
+  <tr> 
+    <td><p><a name="sec2"></a><span class="navheader">2. Once you have Started</span></p>
+      <ul>
+        <li class="bodycopy"> You are supported by Oracle Support under your current 
+          database Support license. Log SQL Developer bugs and issues using Metalink 
+          for the product <strong>Oracle SQL Developer.</strong></li>
+        <li><span class="bodycopy">You can discuss issues on the <a href="http://forums.oracle.com/forums/forum.jspa?forumID=260">Oracle 
+          SQL Developer forum</a> </span> 
+          <ul>
+            <li class="bodycopy"> Be sure to use clear subject lines to initiate 
+              a thread</li>
+            <li class="bodycopy">Try to avoid using old, unrelated threads for 
+              a new issue.</li>
+          </ul>
+        </li>
+        <li class="bodycopy">There is a <a href="http://www.oracle.com/technology/products/database/sql_developer/files/BugsFixed_v153.html">list 
+          of bugs fixed</a>. You can also contact Oracle Support to request bugs 
+          are published.</li>
+        <li class="bodycopy"> Known issues in this release are listed below. This 
+          is not a complete list of known bugs, but some of the main issues that 
+          might impact you.</li>
+        <li class="bodycopy"> Features not yet supported in this release can be 
+          added to the <strong>Feature Requests</strong> section on the <a href="http://sqldeveloper.oracle.com">Oracle 
+          SQL Developer Exchange</a></li>
+        <li class="bodycopy"> Please review current <a href="http://www.oracle.com/technology/products/database/sql_developer/files/certification.html">certification</a> 
+          status for platform and database certification queries.</span> 
+        <li>TimesTen is included in SQL Developer 1.5.3. You will not see the 
+          TimesTen Connection node unless you have TimesTen installed and configured 
+          (see TimesTen section above).
+        <li class="bodycopy"> Support for TimesTen In-Memory Database includes 
+          support for Oracle In-Memory Database Cache and TimesTen In-Memory Database 
+          Release 7.0.3 and later.</li>
+        <li class="bodycopy">If you did not migrate your connections from a previous 
+          release, you can import them afterwards. Invoke the earlier release 
+          of SQL Developer, export the required connections and import them in 
+          the new release.</li>
+      </ul></td>
+  </tr>
+  <tr> 
+    <td> <p><a name="sec3" id="sec3"></a><span class="navheader">3. Known Issues</span> 
+      <p>This list is not exhaustive, but consists of the higher priority issues 
+        trapped and reported. To find out the status of a bug or to log additional 
+        bugs, please contact Oracle Support through Metalink. 
+      <p class="boldbodycopy">APEX
+      <ul>
+        <li><span class="bodycopy">Tree nodes errors for user Flows</span></li>
+        <li><span class="bodycopy"> Multibyte words in application imported are 
+          garbled</span></li>
+        <li>Currency symbols incorrectly imported</li>
+      </ul>
+      <p class="boldbodycopy">General</p>
+      <ul>
+        <li class="bodycopy">Print data tab of table: entire data not printed</li>
+        <li class="bodycopy">Functions not displaying return type</li>
+        <li class="bodycopy">Performance in query builder when dragging first 
+          table onto page is poor</li>
+        <li class="bodycopy">Update date in data grid, resets time details for 
+          date format without timestamp</li>
+        <li class="bodycopy">MAC: &quot;view files&quot; should filter mac hidden 
+          files on the mac</li>
+        <li class="bodycopy">Bind variable declared with variable command have 
+          case sensitive names</li>
+        <li class="bodycopy">NLS preferences override the login trigger and session 
+          parameters</li>
+        <li class="bodycopy">Timing and status message are wiped out on saving 
+          sql file</li>
+        <li class="bodycopy">Format changes -- to /* -- instead of /* -- */</li>
+        <li class="bodycopy">MAC: data tab's filter does not work well on mac</li>
+        <li class="bodycopy">Closing unshared worksheet prompts for save twice</li>
+        <li class="bodycopy">Unshared worksheet launch prompts inconsistently 
+          for password</li>
+        <li class="bodycopy">Searching the Help shows &quot;null&quot; at the 
+          start of local doc results</li>
+        <li class="bodycopy">Cannot see materialized views or synonyms in left-side 
+          Connections navigator</li>
+        <li class="bodycopy">continues to build memory</li>
+        <li class="bodycopy">SQL History displays only type of scripts and not 
+          sql</li>
+        <li class="bodycopy">Database diff: diff dblink has some problem</li>
+        <li class="bodycopy">Deadlock from worksheet</li>
+        <li class="bodycopy">Doc Help window pops up when other dialogs invoked</li>
+        <li class="bodycopy">Shutdown db option in sys conn -&gt; 'manage db report' 
+          throws java error</li>
+        <li class="bodycopy">SQL History: timestamp values are not localized</li>
+        <li class="bodycopy">Usage list can't be found in extended search</li>
+        <li class="bodycopy">Versioning &gt; cvs ; new files not being displayed 
+          in the cvs connection</li>
+        <li>Retrieving the content of an xml document using pseudocolumn object_value</li>
+      </ul>
+      <p class="boldbodycopy">Formatter</p>
+      <ul>
+        <li>Many keywords not recognized in formatter</li>
+        <li>Formatter does not right align set, and/or and breaks in strange places.</li>
+        <li>Option to preserve blank lines between commands</li>
+        <li>Some formatter options cause replace and procedure name to be concatenated</li>
+      </ul>
+      <p class="boldbodycopy">Connections</p>
+      <ul>
+        <li>Advanced Security Options for thin JDBC drivers are not supported 
+        </li>
+        <li>Expire password feature freezes on connect after change password dialog</li>
+        <li>Advanced connections aren't or can't be encrypted</li>
+        <li>Users in expired(grace) status not notified when connecting</li>
+      </ul>
+      <p class="boldbodycopy">Create or Modify Objects</p>
+      <ul>
+        <li>Loading jar file issues</li>
+        <li>Can't edit java that has been loaded</li>
+        <li>Copy wizard drops connection</li>
+        <li>Copy wizard truncate from userA to userB results in a hang</li>
+        <li>MAC copy starts, doesn't end, error goes to java stack</li>
+        <li>Path for create directory in the directories node is incorrect</li>
+        <li>View dialog: SQL syntax is valid, however the query is invalid</li>
+      </ul>
+      <p class="boldbodycopy">SQL Worksheet and Data</p>
+      <ul>
+        <li> Sort setting can't be changed if there is a failure</li>
+        <li>print on data grid, truncates header row</li>
+      </ul>
+      <p class="boldbodycopy">PL/SQL</p>
+      <ul>
+        <li>Refresh or reconnecting to a user after privilege change does not 
+          update user</li>
+        <li>No way to terminate an executing pl/sql procedure once started</li>
+      </ul>
+      <p class="boldbodycopy">Export/Import</p>
+      <ul>
+        <li>Cursor data exported to html does not render properly</li>
+        <li>Table &gt; export data get a &quot;no columns&quot; message dialog</li>
+        <li>Quotes in excel import do not work correctly</li>
+      </ul>
+      <p class="boldbodycopy">Migrate</p>
+      <ul>
+        <li>Migrate from sql server - data move fails with characters included 
+          &amp; and '</li>
+        <li>Browsing sql server 2000 indexes panel does not work</li>
+        <li>Offline data move &gt; ms access : data not migrated</li>
+        <li>Duplicate column name error reported on translated ms access query</li>
+        <li>Drop view in captured model, click refresh. click edit for that view, 
+          error displayed</li>
+        <li>Deeply nested statements take an exponential amount of time to translate</li>
+        <li>Migration generate script sometimes hangs due to migration log thread</li>
+        <li>MYSQL&gt; offline datamove - run oracle_ctl got table does not exist 
+          error</li>
+        <li>Date format masks need to be consistently applied during the migration</li>
+        <li>Capture exception cannot sort a row of size 8096</li>
+        <li>Max cursors exceeded when migrating more than 1 database</li>
+        <li>SQL Server default &quot;for&quot; triggers should be converted to 
+          after trigger</li>
+        <li>MYSQL quick migration stopped in convert step</li>
+      </ul>
+      <p class="boldbodycopy">Preferences</p>
+      <ul>
+        <li>SQL Developer seems to &quot;lose&quot; some key assignments now and 
+          then</li>
+        <li>NLS preferences override the login trigger and session parameters</li>
+      </ul>
+      <p class="boldbodycopy">Reports</p>
+      <ul>
+        <li>Order By date error in &quot;daily ash statistics chart&quot;</li>
+      </ul>
+      <p class="boldbodycopy">TimesTen</p>
+      <ul>
+        <li>Commit and rollback behavior for TimesTen DDL and DML operations: 
+          Unlike the Oracle database, TimesTen does not implicitly commit DDL 
+          transactions. The user must explicitly commit the transactions by clicking 
+          the Commit button on the SQL Worksheet.</li>
+        <li>Enabling PassThrough can affect the SQL operations in the Connections 
+          navigator. Make sure this setting is reset to 0 when switching from 
+          PassThrough operations in the SQL Worksheet back to the Connections 
+          navigator.</li>
+        <li>DDL operations fail with when the Data tab is being viewed. Ensure 
+          that the data tab is not viewing the same table that you are performing 
+          DDL on. </li>
+        <li>You cannot create tables when the SYS.TABLES system table is being 
+          viewed in SQL Developer. Viewing the content of SYS.TABLES in the Data 
+          tab causes a lock to be placed. All CREATE TABLE statements will be 
+          blocked and may eventually time out because of this. The lock is released 
+          as soon as the focus of the Data tab is switched to another table. This 
+          is fixed in 7.0.5 and later release of the TimesTen In-Memory Database. 
+        </li>
+        <li>EXPORT DATA &gt; insert generates Oracle-compatible SQL INSERT statements, 
+          depending on the underlying data type and the difference in support 
+          of literals. These may not be compatible with the TimesTen database. 
+        </li>
+        <li>EXPORT DATA &gt; ttbulkcp generates an error when the action is performed 
+          inside the Data tab. Select this option from the Connections navigator. 
+        </li>
+        <li>The LIKE filter does not find an exact object match. The workaround 
+          is to use = instead of LIKE when defining the filter.</li>
+      </ul></td>
+  </tr>
+  <tr> 
+    <td><p><span class="navheader"><a name="sec6" id="sec6"></a>4. New Features 
+        in Oracle SQL Developer 1.5</span></p>
+      <p><span class="bodycopy">For a comprehensive list of features please review 
+        the <a href="http://www.oracle.com/technology/products/database/sql_developer/files/featurelist_1_5.htm">SQL 
+        Developer 1.5 Feature List</a></span></p>
+      </td>
+  </tr>
+</table>
